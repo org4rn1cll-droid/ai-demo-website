@@ -10,7 +10,7 @@ https://superficial-purposely-cherrie.ngrok-free.dev/
 
 ## Features
 
-- **Local Execution**: Runs entirely on your machine with no internet required
+- **Local Execution**: Runs entirely on a gpu server with no internet required
 - **Simple Interface**: Clean, user-friendly web interface for symptom input
 - **Real-time Diagnosis**: Instant results with confidence scores
 - **Top 3 Results**: Shows the most likely diagnoses with percentages
