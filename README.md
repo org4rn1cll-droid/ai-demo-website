@@ -28,31 +28,7 @@ https://superficial-purposely-cherrie.ngrok-free.dev/
 ### Frontend
 - **HTML/CSS/JavaScript**: Pure client-side implementation
 - **Responsive Design**: Works on desktop and mobile devices
-- **Loading States**: Shows loading indicator during processing
 - **Error Handling**: Graceful handling of empty inputs
-
-## Requirements
-
-- Python 3.6+
-- Flask
-- Flask-CORS
-- PyTorch (with CUDA support if available)
-- All model files in the `medical_ai` directory
-
-## Setup Instructions
-
-1. **Install Dependencies**:
-   ```bash
-   pip install flask flask-cors torch
-   ```
-
-2. **Run the Application**:
-   ```bash
-   python app.py
-   ```
-
-3. **Access the Demo**:
-   Open your browser and go to `http://localhost:5000`
 
 ## Model Information
 
@@ -76,7 +52,7 @@ The model files are located in the `reranker_model` directory and called by:
 ## Security Notes
 
 - This is a development-only server - not suitable for production use
-- All processing happens locally on your machine
+- All processing happens locally on the gpu server
 - No data is sent to external servers
 - CORS is enabled for local development only
 
@@ -101,7 +77,7 @@ The model files are located in the `reranker_model` directory and called by:
 
 ## License
 
-This project is for demonstration purposes only. The medical AI model and its predictions should not be used for actual medical diagnosis.
+This project is for demonstration purposes only. The medical AI model and its predictions should not be used for actual medical diagnosis. Consult a doctor if actual issues arise, not this diagnostic tool.
 
 ## Contributing
 
@@ -166,8 +142,3 @@ The model architecture is designed for:
 - Ability to handle various symptom combinations
 - Integration with the Bayesian diagnostic framework
 
-## Dependencies
-
-- transformers (Hugging Face)
-- torch
-- numpy
