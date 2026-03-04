@@ -1,17 +1,47 @@
 function runAI() {
     const input = document.getElementById("inputText").value;
+    const resultEl = document.getElementById("result");
 
-    fetch("https://your-backend-url/api/run", {
+    if (!input) {
+        resultEl.textContent = "Please enter symptoms.";
+        return;
+    }
+
+    fetch("/diagnose", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+            "Content-Type": "application/json",
+            "ngrok-skip-browser-warning": "true"
+        },
         body: JSON.stringify({ text: input })
     })
-        .then(res => res.json())
+        .then(response => response.json())
         .then(data => {
-            document.getElementById("result").textContent = data.output;
+
+            if (data.error) {
+                resultEl.textContent = data.error;
+                return;
+            }
+
+            if (!data.results) {
+                resultEl.textContent = data.result;
+                return;
+            }
+
+            let outputHTML = "";
+
+            data.results.forEach((item, index) => {
+                outputHTML += `
+          <strong>${index + 1}. ${item.disease}</strong><br>
+          Confidence: ${(item.score * 100).toFixed(2)}%<br><br>
+        `;
+            });
+
+            resultEl.innerHTML = outputHTML;
+
         })
-        .catch(err => {
-            document.getElementById("result").textContent = "Error running AI.";
-            console.error(err);
+        .catch(error => {
+            console.error(error);
+            resultEl.textContent = "Error connecting to AI.";
         });
-  }
+}

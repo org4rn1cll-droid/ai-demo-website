@@ -1,0 +1,891 @@
+disease_id,disease
+DIS_0001,ACL injury
+DIS_0002,ARDS
+DIS_0003,Abdominal aortic aneurysm
+DIS_0005,Achalasia
+DIS_0007,Achilles tendon rupture
+DIS_0008,Acoustic neuroma (vestibular schwannoma)
+DIS_0009,Acromegaly
+DIS_0011,Acute coronary syndrome
+DIS_0013,Acute kidney injury
+DIS_0014,Acute liver failure
+DIS_0015,Acute lymphocytic leukemia
+DIS_0016,Acute myelogenous leukemia
+DIS_0017,Acute sinusitis
+DIS_0018,Addison's disease
+DIS_0019,Adnexal tumors and masses
+DIS_0020,Adrenal cancer
+DIS_0021,Adult Still disease
+DIS_0022,Adult attention-deficit/hyperactivity disorder (ADHD)
+DIS_0023,Agoraphobia
+DIS_0025,Albinism
+DIS_0027,Alcohol poisoning
+DIS_0028,Alcohol use disorder
+DIS_0029,Alcoholic hepatitis (Alcohol-associated hepatitis)
+DIS_0030,Allergies
+DIS_0032,Alpha-gal syndrome
+DIS_0034,Amenorrhea
+DIS_0035,Amnesia
+DIS_0036,Ampullary cancer
+DIS_0037,Amyotrophic lateral sclerosis (ALS)
+DIS_0038,Anal cancer
+DIS_0039,Anal fissure
+DIS_0040,Anal fistula
+DIS_0043,Angelman syndrome
+DIS_0046,Anorgasmia in women
+DIS_0047,Anterior vaginal prolapse (cystocele)
+DIS_0048,Antisocial personality disorder
+DIS_0049,Anxiety disorders
+DIS_0051,Aortic valve disease
+DIS_0052,Aortic valve regurgitation
+DIS_0053,Aortic valve stenosis
+DIS_0056,Appendicitis
+DIS_0057,Arteriosclerosis / atherosclerosis
+DIS_0058,Arteriovenous malformation
+DIS_0059,Arthritis
+DIS_0060,Asthma
+DIS_0061,Asthma attack
+DIS_0064,Ataxia
+DIS_0065,Atelectasis
+DIS_0066,Atrial fibrillation
+DIS_0067,Atrial flutter
+DIS_0068,Atrial septal defect (ASD)
+DIS_0069,Atrial tachycardia
+DIS_0071,Atrioventricular nodal reentry tachycardia (AVNRT)
+DIS_0073,Atypical genitalia
+DIS_0075,Atypical teratoid rhabdoid tumor (ATRT)
+DIS_0076,Auditory processing disorder (APD)
+DIS_0077,Autoimmune encephalitis
+DIS_0078,Autoimmune hepatitis
+DIS_0079,Autoimmune pancreatitis
+DIS_0082,B-cell lymphoma
+DIS_0083,Back pain
+DIS_0086,Balance problems
+DIS_0087,Bardet-Biedl syndrome (BBS)
+DIS_0088,Barrett's esophagus
+DIS_0092,Bee sting
+DIS_0093,Behcet disease
+DIS_0094,Benign adrenal tumors
+DIS_0095,Benign paroxysmal positional vertigo (BPPV)
+DIS_0096,Benign peripheral nerve tumor
+DIS_0099,Biliary atresia
+DIS_0100,Binge-eating disorder
+DIS_0101,Bipolar disorder
+DIS_0102,Bird flu (avian influenza)
+DIS_0104,Bladder cancer
+DIS_0105,Bladder exstrophy
+DIS_0111,Body dysmorphic disorder
+DIS_0112,Bone cancer
+DIS_0113,Borderline personality disorder
+DIS_0114,Bradycardia
+DIS_0115,Brain AVM (arteriovenous malformation)
+DIS_0116,Brain aneurysm
+DIS_0117,Brain metastases
+DIS_0118,Brain tumor
+DIS_0119,Breast cysts
+DIS_0120,Breast pain
+DIS_0122,Broken arm
+DIS_0123,Broken collarbone
+DIS_0124,Broken foot
+DIS_0126,Broken heart syndrome
+DIS_0127,Broken leg
+DIS_0129,Broken ribs
+DIS_0130,Broken toe
+DIS_0131,Broken wrist
+DIS_0132,Bronchiolitis
+DIS_0133,Bronchitis
+DIS_0135,Buerger disease
+DIS_0136,Bulimia nervosa
+DIS_0137,Bullous pemphigoid
+DIS_0140,Burkitt lymphoma
+DIS_0141,Burning mouth syndrome
+DIS_0142,Bursitis
+DIS_0144,COPD
+DIS_0147,Cancer
+DIS_0148,Canker sore
+DIS_0149,Carbon monoxide poisoning
+DIS_0152,Carcinoma of unknown primary
+DIS_0154,Cardiomyopathy
+DIS_0155,Carotid artery disease
+DIS_0156,Carpal tunnel syndrome
+DIS_0157,Cataracts
+DIS_0159,Cavities and tooth decay
+DIS_0160,Celiac disease
+DIS_0163,Central nervous system vascular malformations
+DIS_0164,Central sleep apnea
+DIS_0165,Cerebral palsy
+DIS_0169,Chemo brain
+DIS_0170,Chest pain
+DIS_0171,Chickenpox
+DIS_0172,Chilblains
+DIS_0176,Childhood obesity
+DIS_0177,Childhood schizophrenia
+DIS_0178,Chlamydia trachomatis
+DIS_0179,Cholangiocarcinoma (bile duct cancer)
+DIS_0180,Cholecystitis
+DIS_0181,Cholestasis of pregnancy
+DIS_0182,Chondrosarcoma
+DIS_0183,Chordoma
+DIS_0184,Choroid plexus carcinoma
+DIS_0185,Chronic cough
+DIS_0186,Chronic daily headaches
+DIS_0188,Chronic granulomatous disease
+DIS_0189,Chronic hives
+DIS_0190,Chronic kidney disease
+DIS_0191,Chronic lymphocytic leukemia
+DIS_0192,Chronic myelogenous leukemia
+DIS_0193,Chronic pelvic pain
+DIS_0194,Chronic sinusitis
+DIS_0195,Cirrhosis
+DIS_0197,Cleft lip and cleft palate
+DIS_0198,Clubfoot
+DIS_0199,Coarctation of the aorta
+DIS_0200,Cold sore
+DIS_0203,Colon cancer
+DIS_0204,Colon polyps
+DIS_0205,Coma
+DIS_0206,Common cold
+DIS_0208,Common variable immunodeficiency
+DIS_0210,Complicated grief
+DIS_0211,Compulsive sexual behavior
+DIS_0212,Concussion
+DIS_0214,Congenital diaphragmatic hernia (CDH)
+DIS_0215,Congenital heart defects in children
+DIS_0216,Congenital heart disease in adults
+DIS_0217,Congenital myasthenic syndromes
+DIS_0218,Constipation
+DIS_0220,Coronary artery disease
+DIS_0221,Coronavirus disease 2019 (COVID-19)
+DIS_0225,Cradle cap
+DIS_0226,Craniopharyngioma
+DIS_0227,Craniosynostosis
+DIS_0229,Cutaneous T-cell lymphoma
+DIS_0232,Cystic fibrosis
+DIS_0233,Cystitis
+DIS_0236,De Quervain tenosynovitis
+DIS_0239,Delayed sleep phase
+DIS_0240,Delirium
+DIS_0241,Dengue fever
+DIS_0243,Depression (major depressive disorder)
+DIS_0247,Desmoid tumors
+DIS_0248,Desmoplastic small round cell tumors
+DIS_0250,DiGeorge syndrome (22q11.2 deletion syndrome)
+DIS_0252,Diabetes insipidus
+DIS_0255,Diabetic nephropathy (kidney disease)
+DIS_0258,Diarrhea
+DIS_0259,Diffuse large B-cell lymphoma
+DIS_0260,Diffuse midline glioma (DMG)
+DIS_0262,Dissociative disorders
+DIS_0263,Diverticulitis
+DIS_0264,Dizziness
+DIS_0265,Down syndrome
+DIS_0266,Dressler syndrome
+DIS_0268,Drug allergy
+DIS_0270,Dry macular degeneration
+DIS_0272,Dry skin
+DIS_0273,Dry socket
+DIS_0274,Ductal carcinoma in situ (DCIS)
+DIS_0276,Dupuytren contracture
+DIS_0277,Dysarthria
+DIS_0279,Dysphagia
+DIS_0280,Dystonia
+DIS_0281,E. coli
+DIS_0283,Eating disorders
+DIS_0285,Ectropion
+DIS_0287,Ehlers-Danlos syndrome
+DIS_0288,Ehrlichiosis and anaplasmosis
+DIS_0289,Eisenmenger syndrome
+DIS_0290,Embryonal tumors
+DIS_0291,Emphysema
+DIS_0292,Encephalitis
+DIS_0294,End-stage renal disease
+DIS_0296,Endometrial cancer
+DIS_0297,Endometriosis
+DIS_0298,Enlarged breasts in men (gynecomastia)
+DIS_0300,Entropion
+DIS_0301,Eosinophilic esophagitis
+DIS_0302,Ependymoma
+DIS_0303,Epidermoid cysts
+DIS_0304,Epidermolysis bullosa
+DIS_0305,Epilepsy
+DIS_0306,Epithelioid sarcoma
+DIS_0307,Esophageal cancer
+DIS_0308,Esophageal varices
+DIS_0309,Esophagitis
+DIS_0310,Essential tremor
+DIS_0311,Esthesioneuroblastoma
+DIS_0312,Ewing sarcoma
+DIS_0315,Eye melanoma
+DIS_0316,Eyestrain
+DIS_0318,Familial adenomatous polyposis
+DIS_0320,Farsightedness
+DIS_0322,Female sexual dysfunction
+DIS_0326,Fibrocystic breasts
+DIS_0327,Fibromuscular dysplasia
+DIS_0329,Floor of the mouth cancer
+DIS_0330,Focal segmental glomerulosclerosis (FSGS)
+DIS_0331,Follicular lymphoma
+DIS_0333,Food allergy
+DIS_0334,Foot drop
+DIS_0336,Frontotemporal dementia
+DIS_0337,Frostbite
+DIS_0338,Fuchs dystrophy
+DIS_0339,Functional dyspepsia
+DIS_0341,Galactorrhea
+DIS_0342,Gallbladder cancer
+DIS_0343,Ganglion cyst
+DIS_0346,Gastritis
+DIS_0347,Gastroesophageal reflux disease (GERD)
+DIS_0348,Gastrointestinal bleeding
+DIS_0349,Gastrointestinal stromal tumor (GIST)
+DIS_0350,Gastroparesis
+DIS_0351,Gender dysphoria
+DIS_0352,Generalized anxiety disorder
+DIS_0353,Geographic atrophy
+DIS_0354,Geographic tongue
+DIS_0355,Germ cell tumors
+DIS_0359,Glaucoma
+DIS_0360,Glioblastoma
+DIS_0361,Glioma
+DIS_0362,Glomerulonephritis
+DIS_0364,Granuloma annulare
+DIS_0365,Granulomatosis with polyangiitis
+DIS_0367,Growth plate fractures
+DIS_0368,Guillain-Barre syndrome
+DIS_0369,H1N1 flu (swine flu)
+DIS_0372,Hammertoe and mallet toe
+DIS_0374,Hangovers
+DIS_0377,Hay fever
+DIS_0378,Head and neck cancers
+DIS_0381,Hearing loss
+DIS_0382,Heart arrhythmia
+DIS_0386,Heart valve disease
+DIS_0388,Heat exhaustion
+DIS_0390,Heatstroke
+DIS_0393,Hemangioma
+DIS_0394,Hemifacial spasm
+DIS_0395,Hemochromatosis
+DIS_0396,Hemolytic uremic syndrome (HUS)
+DIS_0397,Hemophilia
+DIS_0399,Hepatic encephalopathy
+DIS_0400,Hepatitis A
+DIS_0401,Hepatitis B
+DIS_0402,Hepatocellular carcinoma (HCC)
+DIS_0403,Hepatopulmonary syndrome
+DIS_0404,Hereditary hemorrhagic telangiectasia
+DIS_0405,Herniated disk
+DIS_0406,Hiatal hernia
+DIS_0411,Hilar cholangiocarcinoma
+DIS_0420,Hydrocele
+DIS_0421,Hypercalcemia
+DIS_0422,Hypereosinophilic syndrome
+DIS_0423,Hyperoxaluria and oxalosis
+DIS_0425,Hyperthyroidism (overactive thyroid)
+DIS_0426,Hypertrophic cardiomyopathy
+DIS_0427,Hypoglycemia
+DIS_0428,Hyponatremia
+DIS_0430,Hypopituitarism
+DIS_0431,Hypoplastic left heart syndrome
+DIS_0432,Hypospadias
+DIS_0433,Hypothermia
+DIS_0434,Idiopathic hypersomnia
+DIS_0435,Indigestion
+DIS_0438,Inflammatory bowel disease (IBD)
+DIS_0439,Inflammatory breast cancer
+DIS_0440,Influenza (flu)
+DIS_0444,Inherited metabolic disorders
+DIS_0445,Insomnia
+DIS_0446,Intermittent explosive disorder
+DIS_0448,Interstitial lung disease
+DIS_0450,Intracranial hematoma
+DIS_0451,Intracranial venous malformations
+DIS_0452,Invasive lobular carcinoma
+DIS_0453,Iritis
+DIS_0455,Irritable bowel syndrome
+DIS_0456,Ischemic colitis
+DIS_0458,Jaw tumors and cysts
+DIS_0459,Jellyfish stings
+DIS_0460,Jet lag disorder
+DIS_0462,Juvenile idiopathic arthritis
+DIS_0463,Kaposi sarcoma
+DIS_0464,Kawasaki disease
+DIS_0465,Keloid scar
+DIS_0466,Keratitis
+DIS_0467,Keratoconus
+DIS_0468,Keratosis pilaris
+DIS_0469,Kidney cancer
+DIS_0470,Kidney cysts
+DIS_0471,Kidney infection
+DIS_0472,Kleptomania
+DIS_0474,Klippel-Trenaunay syndrome
+DIS_0475,Knee bursitis
+DIS_0476,Knee pain
+DIS_0478,Latex allergy
+DIS_0480,Left ventricular hypertrophy
+DIS_0481,Legg-Calve-Perthes disease
+DIS_0483,Leiomyosarcoma
+DIS_0484,Leukemia
+DIS_0486,Lichen planus
+DIS_0487,Lip cancer
+DIS_0489,Liposarcoma
+DIS_0493,Long QT syndrome
+DIS_0494,Low blood pressure (hypotension)
+DIS_0496,Lung cancer
+DIS_0498,Lupus nephritis
+DIS_0499,Lynch syndrome
+DIS_0500,MCAD deficiency
+DIS_0506,Malignant peripheral nerve sheath tumors (MPNST)
+DIS_0508,Mantle cell lymphoma
+DIS_0509,Marginal zone lymphoma
+DIS_0510,Mastitis
+DIS_0512,Median arcuate ligament syndrome (MALS)
+DIS_0513,Medication overuse headaches
+DIS_0514,Meniere's disease
+DIS_0515,Meningioma
+DIS_0516,Meningitis
+DIS_0517,Menopause
+DIS_0519,Mental illness
+DIS_0520,Meralgia paresthetica
+DIS_0522,Mesenteric lymphadenitis
+DIS_0523,Mesothelioma
+DIS_0525,Metachromatic leukodystrophy
+DIS_0526,Metastatic (stage 4) prostate cancer
+DIS_0529,Microscopic colitis
+DIS_0531,Mild cognitive impairment (MCI)
+DIS_0533,Miscarriage
+DIS_0534,Mitral valve disease
+DIS_0536,Mitral valve regurgitation
+DIS_0537,Mitral valve stenosis
+DIS_0538,Mittelschmerz
+DIS_0540,Moles
+DIS_0546,Movement disorders
+DIS_0547,"Multiple endocrine neoplasia, type 1 (MEN 1)"
+DIS_0548,Multiple myeloma
+DIS_0552,Muscle strains
+DIS_0554,Myalgic encephalomyelitis/chronic fatigue syndrome (ME/CFS)
+DIS_0555,Myasthenia gravis
+DIS_0556,Myelofibrosis
+DIS_0558,Myocarditis
+DIS_0560,Myofascial pain syndrome
+DIS_0563,Narcissistic personality disorder
+DIS_0564,Narcolepsy
+DIS_0565,Nasal and paranasal tumors
+DIS_0566,Nasal polyps
+DIS_0567,Nasopharyngeal carcinoma
+DIS_0568,Nearsightedness
+DIS_0569,Neck pain
+DIS_0570,Nephrogenic systemic fibrosis
+DIS_0572,Neuroblastoma
+DIS_0574,Neuroendocrine tumors
+DIS_0575,Neurofibroma
+DIS_0576,Neurofibromatosis type 1
+DIS_0577,Neuromyelitis optica
+DIS_0579,Nicotine dependence
+DIS_0580,Niemann-Pick disease
+DIS_0581,Nightmare disorder
+DIS_0582,Non-Hodgkin lymphoma
+DIS_0584,Nonmelanoma skin cancer
+DIS_0587,Obesity
+DIS_0588,Obstructive sleep apnea
+DIS_0589,Ocular rosacea
+DIS_0590,Oligodendroglioma
+DIS_0591,Oppositional defiant disorder (ODD)
+DIS_0593,Orchitis
+DIS_0596,Osteochondritis dissecans
+DIS_0597,Osteomyelitis
+DIS_0598,Osteoporosis
+DIS_0599,Osteosarcoma
+DIS_0600,Ovarian cysts
+DIS_0602,Overactive bladder
+DIS_0604,Painful intercourse (dyspareunia)
+DIS_0605,Pancreatic cancer
+DIS_0607,Pancreatic neuroendocrine tumors
+DIS_0608,Pancreatitis
+DIS_0609,Panic attacks and panic disorder
+DIS_0610,Paraganglioma
+DIS_0611,Paraneoplastic syndromes of the nervous system
+DIS_0612,Parkinson's disease
+DIS_0613,Parotid tumors
+DIS_0616,Patent ductus arteriosus (PDA)
+DIS_0617,Peanut allergy
+DIS_0618,Pectus excavatum
+DIS_0619,Pediatric brain tumors
+DIS_0620,Pediatric obstructive sleep apnea
+DIS_0623,Pelvic organ prolapse
+DIS_0625,Peptic ulcer
+DIS_0627,Pericarditis
+DIS_0628,Perimenopause
+DIS_0629,Periodontitis
+DIS_0630,Peripheral artery disease (PAD)
+DIS_0631,Peripheral nerve injuries
+DIS_0632,Peripheral nerve tumors
+DIS_0633,Peripheral neuropathy
+DIS_0634,Peritoneal carcinomatosis
+DIS_0635,Peritonitis
+DIS_0636,Persistent depressive disorder
+DIS_0638,Personality disorders
+DIS_0640,Peyronie's disease
+DIS_0641,Pilocytic astrocytoma
+DIS_0642,Pilonidal cyst
+DIS_0643,Pinched nerve
+DIS_0644,Pineoblastoma
+DIS_0647,Plantar warts
+DIS_0648,Pleurisy
+DIS_0649,Plexiform neurofibroma
+DIS_0650,Pneumonia
+DIS_0651,Pneumonitis
+DIS_0653,Polycystic kidney disease
+DIS_0657,Polymyositis
+DIS_0658,Popliteal artery aneurysm
+DIS_0659,Popliteal artery entrapment syndrome
+DIS_0662,Post-vasectomy pain syndrome
+DIS_0663,Posterior cortical atrophy
+DIS_0665,Postherpetic neuralgia
+DIS_0667,Pouchitis
+DIS_0669,Precocious puberty
+DIS_0670,Prediabetes
+DIS_0672,Premature birth
+DIS_0673,Premature ejaculation
+DIS_0676,Presbyopia
+DIS_0677,Prescription drug abuse
+DIS_0681,Primary lateral sclerosis (PLS)
+DIS_0682,Primary ovarian insufficiency
+DIS_0684,Progeria
+DIS_0685,Progressive supranuclear palsy
+DIS_0687,Prostate cancer
+DIS_0688,Prostatitis
+DIS_0689,Pseudobulbar affect
+DIS_0695,Pulmonary atresia with ventricular septal defect
+DIS_0697,Pulmonary embolism
+DIS_0698,Pulmonary fibrosis
+DIS_0699,Pulmonary hypertension
+DIS_0700,Pulmonary valve disease
+DIS_0702,Pyloric stenosis
+DIS_0703,Pyoderma gangrenosum
+DIS_0704,REM sleep behavior disorder
+DIS_0710,Rectal cancer
+DIS_0711,Rectal prolapse
+DIS_0712,Rectovaginal fistula
+DIS_0714,Renal artery stenosis
+DIS_0715,Residual limb pain
+DIS_0716,Retinal detachment
+DIS_0718,Retinoblastoma
+DIS_0719,Retractile testicle
+DIS_0722,Reye's syndrome
+DIS_0723,Rhabdomyosarcoma
+DIS_0724,Rheumatic fever
+DIS_0725,Rheumatoid arthritis
+DIS_0730,Rotator cuff injury
+DIS_0732,Rumination syndrome
+DIS_0734,Ruptured spleen
+DIS_0735,Sacroiliitis
+DIS_0736,Salivary gland tumors
+DIS_0738,Sarcoma
+DIS_0741,Schizoaffective disorder
+DIS_0742,Schizoid personality disorder
+DIS_0743,Schizophrenia
+DIS_0744,Schizotypal personality disorder
+DIS_0746,Sciatica
+DIS_0747,Sclerosing mesenteritis
+DIS_0748,Scoliosis
+DIS_0749,Scorpion sting
+DIS_0750,Acanthosis nigricans
+DIS_0751,Achilles tendinitis
+DIS_0752,Seborrheic dermatitis
+DIS_0752,Actinic keratosis
+DIS_0753,Adjustment disorders
+DIS_0754,Alzheimer's disease
+DIS_0755,Seizures
+DIS_0755,Anal itching
+DIS_0756,Selective IgA deficiency
+DIS_0756,Anaphylaxis
+DIS_0757,Ankylosing spondylitis
+DIS_0757,Self-injury/cutting
+DIS_0758,Aortic dissection
+DIS_0758,Separation anxiety disorder
+DIS_0759,Aplastic anemia
+DIS_0760,Astigmatism
+DIS_0761,Athlete's foot
+DIS_0762,Attention-deficit/hyperactivity disorder (ADHD) in children
+DIS_0762,Shaken baby syndrome
+DIS_0763,Shellfish allergy
+DIS_0763,Autonomic neuropathy
+DIS_0764,Bacterial vaginosis
+DIS_0764,Shigella infection
+DIS_0765,Bad breath
+DIS_0766,Bedbugs
+DIS_0767,Benign prostatic hyperplasia (BPH)
+DIS_0767,Short bowel syndrome
+DIS_0768,Black hairy tongue
+DIS_0769,Bladder stones
+DIS_0770,Blepharitis
+DIS_0770,Skull base tumors
+DIS_0771,Sleep apnea
+DIS_0771,Blocked tear duct
+DIS_0772,Sleep disorders
+DIS_0772,Breast cancer
+DIS_0773,Sleep terrors (night terrors)
+DIS_0773,Bunions
+DIS_0774,Carcinoid syndrome
+DIS_0774,Sleepwalking
+DIS_0775,Cardiogenic shock
+DIS_0775,Small bowel cancer
+DIS_0776,Cavernous malformations
+DIS_0776,Small bowel prolapse (enterocele)
+DIS_0777,Cellulitis
+DIS_0778,Small lymphocytic lymphoma
+DIS_0778,Cervical spondylosis
+DIS_0779,Chagas disease
+DIS_0780,Snoring
+DIS_0780,Common warts
+DIS_0781,Social anxiety disorder (social phobia)
+DIS_0781,Congenital adrenal hyperplasia
+DIS_0782,Corticobasal degeneration (corticobasal syndrome)
+DIS_0782,Soft palate cancer
+DIS_0783,Costochondritis
+DIS_0783,Soft tissue sarcoma
+DIS_0784,Croup
+DIS_0785,Somatic symptom disorder
+DIS_0785,Cytomegalovirus (CMV) infection
+DIS_0786,Dehydration
+DIS_0787,Specific phobias
+DIS_0787,Dermatographia (Dermatographism)
+DIS_0788,Spina bifida
+DIS_0788,Dermatomyositis
+DIS_0789,Spinal arteriovenous malformation (AVM)
+DIS_0789,Diabetes
+DIS_0790,Diabetic ketoacidosis
+DIS_0790,Spinal cord tumor
+DIS_0791,Diaper rash
+DIS_0791,Spinal headaches
+DIS_0792,Dilated cardiomyopathy
+DIS_0792,Spinal tumor
+DIS_0793,Double uterus
+DIS_0793,Spontaneous coronary artery dissection (SCAD)
+DIS_0794,Dry mouth
+DIS_0794,Sprained ankle
+DIS_0795,Dyshidrosis
+DIS_0796,Stage 4 (metastatic) colon cancer
+DIS_0796,Ectopic pregnancy
+DIS_0797,Encopresis
+DIS_0798,Endocarditis
+DIS_0799,Stomach cancer
+DIS_0799,Eye floaters
+DIS_0800,Factor V Leiden
+DIS_0801,Familial Mediterranean fever
+DIS_0802,Familial hypercholesterolemia
+DIS_0803,Fetal alcohol syndrome
+DIS_0803,Stress incontinence
+DIS_0804,Fever
+DIS_0805,Fibromyalgia
+DIS_0805,Stuttering
+DIS_0806,Folliculitis
+DIS_0806,Subarachnoid hemorrhage
+DIS_0807,Frontal lobe seizures
+DIS_0807,Sudden cardiac arrest
+DIS_0808,Suicide and suicidal thoughts
+DIS_0808,Gangrene
+DIS_0809,Sunburn
+DIS_0809,Gestational diabetes
+DIS_0810,Gilbert syndrome
+DIS_0810,Supraventricular tachycardia
+DIS_0811,Head lice
+DIS_0812,Heart attack
+DIS_0813,Heart murmurs
+DIS_0814,Heartburn
+DIS_0815,Heavy menstrual bleeding
+DIS_0816,Hiccups
+DIS_0817,Hidradenitis suppurativa
+DIS_0817,Synovial sarcoma
+DIS_0818,High blood pressure in children
+DIS_0818,Syringomyelia
+DIS_0819,Histoplasmosis
+DIS_0819,Systemic mastocytosis
+DIS_0820,Hoarding disorder
+DIS_0820,T-cell lymphoma
+DIS_0821,TEN
+DIS_0821,Huntington's disease
+DIS_0822,TMJ disorders
+DIS_0822,Hyperparathyroidism
+DIS_0823,Hypoparathyroidism
+DIS_0823,Tachycardia
+DIS_0824,Ingrown hair
+DIS_0824,Tay-Sachs disease
+DIS_0825,Interstitial cystitis
+DIS_0825,Teen depression
+DIS_0826,Iron deficiency anemia
+DIS_0826,Teeth grinding (bruxism)
+DIS_0827,Temporal lobe seizure
+DIS_0827,Itchy skin (pruritus)
+DIS_0828,Tendinitis
+DIS_0828,Jock itch
+DIS_0829,Klinefelter syndrome
+DIS_0829,Tendinopathy
+DIS_0830,Lactose intolerance
+DIS_0830,Tennis elbow
+DIS_0831,Tension headache
+DIS_0831,Leukoplakia
+DIS_0832,Lice
+DIS_0833,Low sex drive in women
+DIS_0833,Tetanus
+DIS_0834,Malaria
+DIS_0834,Tetralogy of Fallot
+DIS_0835,Male breast cancer
+DIS_0836,Male hypogonadism
+DIS_0836,Thoracic aortic aneurysm
+DIS_0837,Thoracic outlet syndrome
+DIS_0837,Malignant hyperthermia
+DIS_0838,Measles
+DIS_0838,Throat cancer
+DIS_0839,Mitral valve prolapse
+DIS_0839,Thrombocytosis
+DIS_0840,Molluscum contagiosum
+DIS_0841,Thumb arthritis
+DIS_0841,Mosquito bites
+DIS_0842,Thunderclap headaches
+DIS_0842,Multiple system atrophy
+DIS_0843,Mumps
+DIS_0844,Muscular dystrophy
+DIS_0845,Nephrotic syndrome
+DIS_0845,Tinnitus
+DIS_0846,Neurodermatitis
+DIS_0847,Tongue cancer
+DIS_0847,Noonan syndrome
+DIS_0848,Optic neuritis
+DIS_0849,Osteoarthritis
+DIS_0849,Tonic-clonic (grand mal) seizure
+DIS_0850,Ovarian hyperstimulation syndrome
+DIS_0850,Tonsil cancer
+DIS_0851,Pelvic inflammatory disease (PID)
+DIS_0852,Pemphigus
+DIS_0853,Persistent post-concussive symptoms (Post-concussion syndrome)
+DIS_0854,Tourette syndrome
+DIS_0854,Pityriasis rosea
+DIS_0855,Toxic hepatitis
+DIS_0855,Poison ivy rash
+DIS_0856,Polycythemia vera
+DIS_0857,Polymorphous light eruption
+DIS_0857,Toxoplasmosis
+DIS_0858,Polymyalgia rheumatica
+DIS_0858,Tracheomalacia
+DIS_0859,Trachoma
+DIS_0859,Prader-Willi syndrome
+DIS_0860,Transient ischemic attack (TIA)
+DIS_0860,Preeclampsia
+DIS_0861,Transposition of the great arteries
+DIS_0861,Proctitis
+DIS_0862,Prolactinoma
+DIS_0863,Pulmonary atresia
+DIS_0864,Pulmonary edema
+DIS_0865,Trichotillomania (hair-pulling disorder)
+DIS_0865,Rabies
+DIS_0866,Radiation sickness
+DIS_0867,Reactive arthritis
+DIS_0867,Tricuspid valve disease
+DIS_0868,Recurrent breast cancer
+DIS_0869,Trigger finger
+DIS_0869,Retinal diseases
+DIS_0870,Retrograde ejaculation
+DIS_0871,Truncus arteriosus
+DIS_0871,Rett syndrome
+DIS_0872,Rickets
+DIS_0873,Roseola
+DIS_0873,Tuberous sclerosis
+DIS_0874,Tubular adenoma of the colon
+DIS_0874,Rubella
+DIS_0875,Scabies
+DIS_0876,Scarlet fever
+DIS_0876,Type 1 diabetes in children
+DIS_0877,Seborrheic keratosis
+DIS_0877,Type 2 diabetes
+DIS_0878,Serotonin syndrome
+DIS_0878,Type 2 diabetes in children
+DIS_0879,Severe acute respiratory syndrome (SARS)
+DIS_0880,Ulcerative colitis
+DIS_0880,Shingles
+DIS_0881,Sick sinus syndrome
+DIS_0881,Ulnar wrist pain
+DIS_0882,Strep throat
+DIS_0883,Swimmer's ear
+DIS_0884,Swimmer's itch
+DIS_0884,Undifferentiated pleomorphic sarcoma
+DIS_0885,Testicular torsion
+DIS_0885,Ureteral cancer
+DIS_0886,Thalassemia
+DIS_0886,Ureteral obstruction
+DIS_0887,Urethral stricture
+DIS_0887,Thrombophlebitis
+DIS_0888,Tinea versicolor
+DIS_0888,Urinary incontinence
+DIS_0889,Urinary tract infection (UTI)
+DIS_0889,Tonsillitis
+DIS_0890,Tooth abscess
+DIS_0891,Toxic shock syndrome
+DIS_0892,Uterine prolapse
+DIS_0892,Transverse myelitis
+DIS_0893,Traumatic brain injury
+DIS_0894,VEXAS syndrome
+DIS_0894,Trichinosis
+DIS_0895,Vaginal agenesis
+DIS_0895,Tricuspid atresia
+DIS_0896,Tricuspid valve regurgitation
+DIS_0897,Type 1 diabetes
+DIS_0897,Vaginal fistula
+DIS_0898,Typhoid fever
+DIS_0899,Umbilical hernia
+DIS_0900,Undescended testicle
+DIS_0900,Varicocele
+DIS_0901,Uveitis
+DIS_0902,Valley fever
+DIS_0902,Vasculitis
+DIS_0903,Vasovagal syncope
+DIS_0903,Ventricular fibrillation
+DIS_0904,Viral gastroenteritis (stomach flu)
+DIS_0905,Von Willebrand disease
+DIS_0906,Ventricular tachycardia
+DIS_0907,Vertebral tumor
+DIS_0908,Vesicoureteral reflux
+DIS_0910,Viral hemorrhagic fevers
+DIS_0913,Vulvar cancer
+DIS_0914,Waldenstrom macroglobulinemia
+DIS_0915,Wet macular degeneration
+DIS_0917,Whiplash
+DIS_0918,Wilms tumor
+DIS_0919,Wilson's disease
+DIS_0920,Wolff-Parkinson-White (WPW) syndrome
+DIS_0922,Yeast infection (vaginal)
+DIS_0924,Zenker's diverticulum
+DIS_0925,Zollinger-Ellison syndrome
+DIS_0926,Absence seizure
+DIS_0927,Acne
+DIS_0928,Ameloblastoma
+DIS_0929,Amyloidosis
+DIS_0930,Anaplastic large cell lymphoma
+DIS_0931,Anemia
+DIS_0932,Angina
+DIS_0933,Anorexia nervosa
+DIS_0934,Appendix cancer
+DIS_0935,Atopic dermatitis (eczema)
+DIS_0936,Autism spectrum disorder
+DIS_0937,Autoimmune epilepsy
+DIS_0938,Baker cyst
+DIS_0939,Bell's palsy
+DIS_0940,Bone spurs
+DIS_0941,Burns
+DIS_0942,Cervical cancer
+DIS_0943,Cervicitis
+DIS_0946,Color blindness
+DIS_0947,Conjoined twins
+DIS_0948,Contact dermatitis
+DIS_0949,Corns and calluses
+DIS_0950,Crohn's disease
+DIS_0951,Cryoglobulinemia
+DIS_0952,Cutaneous B-cell lymphoma
+DIS_0953,Delayed ejaculation
+DIS_0954,Dementia
+DIS_0955,Dermatitis
+DIS_0956,Dislocated shoulder
+DIS_0957,Dural arteriovenous fistulas
+DIS_0958,Dwarfism
+DIS_0959,Dyslexia
+DIS_0960,Ebstein anomaly
+DIS_0961,Edema
+DIS_0962,Enlarged spleen (splenomegaly)
+DIS_0963,Epididymitis
+DIS_0964,Erectile dysfunction
+DIS_0965,Esophageal spasms
+DIS_0966,Fatty liver disease (MASLD)
+DIS_0967,Fecal incontinence
+DIS_0968,Fibroadenoma
+DIS_0969,Flatfeet
+DIS_0970,Food poisoning (foodborne illness)
+DIS_0971,Frozen shoulder
+DIS_0972,Genital herpes
+DIS_0973,Genital warts
+DIS_0974,Giant cell arteritis
+DIS_0975,Gingivitis
+DIS_0976,Golfer's elbow
+DIS_0977,Gout
+DIS_0978,Graves' disease
+DIS_0979,Hair loss
+DIS_0980,Hairy cell leukemia
+DIS_0981,Hamstring injury
+DIS_0982,Heart failure
+DIS_0983,Hemorrhoids
+DIS_0984,Hepatitis C
+DIS_0985,Hip dysplasia
+DIS_0986,Hodgkin lymphoma (Hodgkin disease)
+DIS_0987,Hydrocephalus
+DIS_0988,Hydronephrosis
+DIS_0989,Hyperhidrosis
+DIS_0990,Hypothyroidism (underactive thyroid)
+DIS_0991,IgA nephropathy (Berger disease)
+DIS_0992,Illness anxiety disorder
+DIS_0993,Immune thrombocytopenia (ITP)
+DIS_0994,Impacted wisdom teeth
+DIS_0995,Infertility
+DIS_0997,Kidney stones
+DIS_0998,Kyphosis
+DIS_0999,Lewy body dementia
+DIS_1000,Lichen sclerosus
+DIS_1001,Liver cancer
+DIS_1002,Liver disease
+DIS_1003,Low sperm count
+DIS_1004,Lymphedema
+DIS_1005,Lymphoma
+DIS_1006,Male infertility
+DIS_1007,Marfan syndrome
+DIS_1008,Medulloblastoma
+DIS_1009,Melanoma
+DIS_1010,Metastatic castration-resistant prostate cancer (mCRPC)
+DIS_1011,Migraine
+DIS_1012,Molar pregnancy
+DIS_1013,Morning sickness
+DIS_1014,Morton neuroma
+DIS_1015,Mouth cancer
+DIS_1016,Moyamoya disease
+DIS_1017,"Multiple endocrine neoplasia, type 2 (MEN 2)"
+DIS_1018,Multiple sclerosis
+DIS_1019,Myelin oligodendrocyte glycoprotein antibody-associated disease (MOGAD)
+DIS_1020,Myelodysplastic syndromes
+DIS_1021,Occupational asthma
+DIS_1022,Ovarian cancer
+DIS_1023,POEMS syndrome
+DIS_1024,Patellofemoral pain syndrome
+DIS_1025,Phenylketonuria (PKU)
+DIS_1026,Pheochromocytoma
+DIS_1027,Pink eye (conjunctivitis)
+DIS_1028,Plantar fasciitis
+DIS_1029,Pneumothorax
+DIS_1030,Polycystic ovary syndrome (PCOS)
+DIS_1031,Polyhydramnios
+DIS_1032,Postpartum depression
+DIS_1033,Primary biliary cholangitis
+DIS_1034,Primary progressive aphasia
+DIS_1035,Primary sclerosing cholangitis (PSC)
+DIS_1036,Prostate cancer recurrence
+DIS_1037,Psoriasis
+DIS_1038,Radiation enteritis
+DIS_1039,Raynaud's disease
+DIS_1040,Restless legs syndrome
+DIS_1041,Rosacea
+DIS_1042,Sacral dimple
+DIS_1044,Scrotal masses
+DIS_1045,Sexually transmitted diseases (STDs)
+DIS_1046,Sjogren's syndrome
+DIS_1047,Smallpox
+DIS_1048,Spinal cord injury
+DIS_1049,Sprains
+DIS_1050,Stroke
+DIS_1051,Sun allergy
+DIS_1052,Testicular cancer
+DIS_1053,Thrombocytopenia (low platelet count)
+DIS_1054,Thyroid cancer
+DIS_1055,Traveler's diarrhea
+DIS_1056,Trigeminal neuralgia
+DIS_1057,Uterine fibroids
+DIS_1058,Vaginal cancer
+DIS_1059,Varicose veins
+DIS_1060,Vocal cord paralysis
+DIS_1061,Vulvodynia
+DIS_1062,Wrist pain
