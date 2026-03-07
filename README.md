@@ -18,6 +18,9 @@ https://superficial-purposely-cherrie.ngrok-free.dev/
 
 ## Technical Architecture
 
+### Pipeline Diagram
+<img width="1024" height="1536" alt="pipeline_diagram" src="https://github.com/user-attachments/assets/16966a24-c59f-4e3c-8b73-63b83f9f1ffa" />
+
 ### Backend
 - **Framework**: Python Flask
 - **Model**: InferenceEngine loaded once at startup
@@ -142,8 +145,6 @@ The model architecture is designed for:
 - Ability to handle various symptom combinations
 - Integration with the Bayesian diagnostic framework
 
-## Pipeline Diagram
-<img width="1024" height="1536" alt="pipeline_diagram" src="https://github.com/user-attachments/assets/16966a24-c59f-4e3c-8b73-63b83f9f1ffa" />
 
 
 
