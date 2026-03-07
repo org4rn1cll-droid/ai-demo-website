@@ -142,3 +142,74 @@ The model architecture is designed for:
 - Ability to handle various symptom combinations
 - Integration with the Bayesian diagnostic framework
 
+## Pipeline Overview
+The system is designed as a multi-stage AI pipeline, each stage addressing a core challenge of medical knowledge extraction and inference.
+1. Disease List and Web Sources
+I began by curating a list of diseases and associated high-quality medical web pages describing symptoms, risk factors, and clinical context. This manual curation ensured the foundation of the system was grounded in reliable sources.
+2. Knowledge Corpus Collection
+I collected the full text from each source, producing a raw knowledge corpus of approximately 4.5 GB. This large-scale corpus represents a diverse range of diseases and clinical presentations.
+3. AI-Assisted Extraction and Filtering
+To process this large corpus efficiently, I used a large language model (LLM) to read and extract structured information. The LLM identified relevant features, such as symptoms, severity, risk factors, and comorbidities, while filtering out irrelevant content. Additionally, the LLM standardized terminology to produce a consistent, high-quality dataset suitable for training AI models.
+4. Structured Dataset Preparation
+The filtered data was stored in a structured format, creating a comprehensive dataset ready for machine learning. This step involved balancing disease classes, removing duplicates, and ensuring the data captured realistic symptom combinations.
+5. Reranking Model: Design, Procedure, and Importance
+A key innovation of this system is the reranking model, which improves prediction accuracy beyond simple retrieval methods.
+Purpose:
+When multiple candidate diseases match a patient’s symptoms, the reranking model evaluates them more deeply and ranks them by probability. This ensures the system presents the most likely diagnoses first, making predictions both accurate and clinically meaningful.
+Procedure:
+Candidate Retrieval: The system first retrieves a list of potential diseases based on symptom matching.
+Feature Extraction: For each candidate, features are derived from the structured dataset, such as symptom overlap, disease severity, and prior probabilities.
+Model Training: The reranking model is trained using supervised learning. The input is symptom-feature vectors, and the output is the correct ordering of disease candidates. Training includes:
+Assigning higher weights to diseases with more symptom overlap
+Incorporating prior knowledge (Bayesian priors) to reflect prevalence
+Optimizing ranking loss to improve ordering accuracy
+Evaluation: Model performance is assessed using ranking metrics such as Precision@1, Mean Reciprocal Rank (MRR), and Normalized Discounted Cumulative Gain (NDCG).
+Why It’s Important:
+Without reranking, the system could return multiple plausible diseases in random or suboptimal order, making it difficult for doctors or users to interpret. The reranker ensures the most relevant, evidence-supported diagnoses appear first, significantly improving the system’s usability and reliability. This mirrors real clinical reasoning, where physicians prioritize differential diagnoses based on likelihood and severity.
+6. Bayesian Reasoning Layer
+A Bayesian reasoning layer incorporates prior knowledge about disease prevalence and symptom likelihoods. By combining probabilistic reasoning with the reranking model, the system outputs confidence-based predictions, resembling the diagnostic process used by clinicians.
+7. GPU-Based Inference
+Finally, the trained model is deployed with GPU acceleration to provide real-time predictions. This ensures the system can handle multiple queries quickly, delivering instantaneous probabilistic outputs.
+Pipeline Diagram
++---------------------------+
+| Disease List + Web Links  |
++------------+--------------+
+             |
+             v
++---------------------------+
+| Raw Knowledge Corpus      |
+| (~4.5 GB)                 |
++------------+--------------+
+             |
+             v
++---------------------------+
+| AI Extraction + Filtering |
+| (LLM-assisted)            |
++------------+--------------+
+             |
+             v
++---------------------------+
+| Structured Dataset        |
++------------+--------------+
+             |
+             v
++---------------------------+
+| Reranking Model Training  |
+| - Candidate retrieval     |
+| - Feature extraction      |
+| - Supervised training     |
+| - Ranking evaluation      |
++------------+--------------+
+             |
+             v
++---------------------------+
+| Bayesian Reasoning Layer  |
++------------+--------------+
+             |
+             v
++---------------------------+
+| GPU-Based Inference       |
+| → Probabilistic Diagnosis |
++---------------------------+
+
+
