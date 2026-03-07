@@ -170,46 +170,9 @@ Without reranking, the system could return multiple plausible diseases in random
 A Bayesian reasoning layer incorporates prior knowledge about disease prevalence and symptom likelihoods. By combining probabilistic reasoning with the reranking model, the system outputs confidence-based predictions, resembling the diagnostic process used by clinicians.
 7. GPU-Based Inference
 Finally, the trained model is deployed with GPU acceleration to provide real-time predictions. This ensures the system can handle multiple queries quickly, delivering instantaneous probabilistic outputs.
-Pipeline Diagram
-+---------------------------+
-| Disease List + Web Links  |
-+------------+--------------+
-             |
-             v
-+---------------------------+
-| Raw Knowledge Corpus      |
-| (~4.5 GB)                 |
-+------------+--------------+
-             |
-             v
-+---------------------------+
-| AI Extraction + Filtering |
-| (LLM-assisted)            |
-+------------+--------------+
-             |
-             v
-+---------------------------+
-| Structured Dataset        |
-+------------+--------------+
-             |
-             v
-+---------------------------+
-| Reranking Model Training  |
-| - Candidate retrieval     |
-| - Feature extraction      |
-| - Supervised training     |
-| - Ranking evaluation      |
-+------------+--------------+
-             |
-             v
-+---------------------------+
-| Bayesian Reasoning Layer  |
-+------------+--------------+
-             |
-             v
-+---------------------------+
-| GPU-Based Inference       |
-| → Probabilistic Diagnosis |
-+---------------------------+
+
+## Pipeline Diagram
+<img width="1024" height="1536" alt="pipeline_diagram" src="https://github.com/user-attachments/assets/16966a24-c59f-4e3c-8b73-63b83f9f1ffa" />
+
 
 
