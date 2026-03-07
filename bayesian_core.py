@@ -7,7 +7,7 @@ from collections import defaultdict
 from math import log
 
 EPS = 1e-9
-
+UNKOWN_SYMPTOM_PROB = 0.05
 
 class BayesianCore:
 
@@ -60,8 +60,8 @@ class BayesianCore:
 
             # Positive evidence
             for s in positive_symptoms:
-                p = symptom_probs.get(s, EPS)
-                log_p += log(p)
+                p = symptom_probs.get(s, UNKOWN_SYMPTOM_PROB)
+                log_p += 1.2 * log(p)
 
             # Explicit negative evidence only
             for s in negative_symptoms:

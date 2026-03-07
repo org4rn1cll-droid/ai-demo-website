@@ -3,44 +3,306 @@
 
 <head>
     <meta charset="UTF-8">
-    <title>My AI Showcase</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MediScan AI — Medical Diagnosis Assistant</title>
     <link rel="stylesheet" href="style.css">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
+        rel="stylesheet">
+    <style>
+        #loading {
+            display: none;
+            align-items: center;
+            gap: 12px;
+            margin-top: 16px;
+            color: #6b7a8d;
+            font-size: 0.92rem;
+            font-family: 'DM Sans', sans-serif;
+        }
+
+        #loading.active {
+            display: flex;
+        }
+
+        .spinner {
+            width: 20px;
+            height: 20px;
+            border: 2px solid #dce3ed;
+            border-top-color: #2a6bcc;
+            border-radius: 50%;
+            animation: spin 0.7s linear infinite;
+            flex-shrink: 0;
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        button:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+        }
+
+        .symptom-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 8px;
+        }
+
+        .symptom-tag {
+            background: #eaf1fb;
+            color: #2a6bcc;
+            border: 1px solid #c5d9f5;
+            border-radius: 20px;
+            padding: 3px 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .diagnosis-block {
+            padding: 18px 0;
+            border-bottom: 1px solid #edf0f5;
+            animation: fadeUp 0.4s ease both;
+        }
+
+        .diagnosis-block:last-child {
+            border-bottom: none;
+        }
+
+        .diagnosis-block:nth-child(2) {
+            animation-delay: 0.05s;
+        }
+
+        .diagnosis-block:nth-child(3) {
+            animation-delay: 0.10s;
+        }
+
+        .diagnosis-block:nth-child(4) {
+            animation-delay: 0.15s;
+        }
+
+        .diagnosis-block:nth-child(5) {
+            animation-delay: 0.20s;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .rank-badge {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin-right: 10px;
+            flex-shrink: 0;
+        }
+
+        .rank-1 {
+            background: #fef3c7;
+            color: #92400e;
+        }
+
+        .rank-2 {
+            background: #f1f5f9;
+            color: #475569;
+        }
+
+        .rank-3 {
+            background: #fef3c7;
+            color: #78350f;
+            opacity: 0.7;
+        }
+
+        .rank-other {
+            background: #f1f5f9;
+            color: #94a3b8;
+        }
+
+        .diagnosis-header {
+            display: flex;
+            align-items: center;
+        }
+
+        .diagnosis-name {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.1rem;
+            color: #1a2535;
+        }
+
+        .confidence-bar-wrap {
+            margin-top: 8px;
+            margin-left: 38px;
+        }
+
+        .confidence-label {
+            font-size: 0.78rem;
+            color: #8896a8;
+            margin-bottom: 4px;
+            font-weight: 500;
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .confidence-bar {
+            height: 5px;
+            background: #edf0f5;
+            border-radius: 10px;
+            overflow: hidden;
+            width: 100%;
+        }
+
+        .confidence-fill {
+            height: 100%;
+            border-radius: 10px;
+            background: linear-gradient(90deg, #2a6bcc, #5ba0f5);
+            transition: width 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .confidence-pct {
+            font-size: 0.82rem;
+            color: #2a6bcc;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+    </style>
 </head>
 
 <body>
 
+    <div class="bg-grid"></div>
+
     <header>
-        <h1>My AI Project</h1>
-        <p>A simple demo website for the CESASC AI Challenge</p>
+        <div class="header-inner">
+            <div class="logo-mark">
+                <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                    <rect width="32" height="32" rx="8" fill="#2a6bcc" />
+                    <path d="M16 7v18M7 16h18" stroke="white" stroke-width="2.5" stroke-linecap="round" />
+                </svg>
+            </div>
+            <div>
+                <h1>MediScan AI</h1>
+                <p class="tagline">AI-Powered Medical Diagnosis Assistant</p>
+                <p class="tagline">Developed by Lucas Lan</p>
+            </div>
+        </div>
     </header>
 
     <main>
-        <section id="about">
-            <h2>About My AI</h2>
-            <p>This is a simple medical diagnostic tool powered by AI. It analyzes patient symptoms and provides potential diagnoses based on a trained model.</p>
-        </section>
 
         <section id="demo">
-            <h2>Enter Your Symptoms</h2>
+            <h2>Try It Yourself</h2>
+            <p class="demo-sub">Describe your symptoms in natural language — try to be as specific as possible!</p>
 
-            <textarea id="inputText" placeholder="Example: I have a mild cough, headaches, and fatigue"></textarea>
-            <button onclick="runAI()">Run AI</button>
+            <div class="input-wrap">
+                <textarea id="inputText"
+                    placeholder="Example: I have a mild cough, headaches, fatigue, sore throat, and fever for the past two days..."></textarea>
+                <button id="diagnoseBtn" onclick="runAI()">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="11" cy="11" r="8" />
+                        <path d="m21 21-4.35-4.35" />
+                    </svg>
+                    Run Diagnosis
+                </button>
+            </div>
+
+            <div id="loading">
+                <div class="spinner"></div>
+                <span>Analyzing symptoms…</span>
+            </div>
 
             <div id="output">
-                <h3>Output</h3>
-                <p id="result"></p>
+                <div class="output-header">
+                    <h3>Results</h3>
+                    <span id="result-count" class="result-count"></span>
+                </div>
+                <div id="result"></div>
             </div>
         </section>
 
-        <section id="details">
-            <h2>How It Works</h2>
-            <p>This model runs on a hybrid approach combining a neural reranker and a Naive Bayes style classifier.</p>
+        <section id="about">
+            <div class="about-grid">
+                <div class="about-text">
+                    <h2>About This Project</h2>
+                    <p>Millions of Americans face rising healthcare costs — a 3-day hospital stay now averages
+                        <strong>$30,000</strong>, nearly 700% more than in 2000. For uninsured individuals, especially
+                        in cities like Los Angeles with large homeless populations, even basic diagnosis can be
+                        financially devastating.</p>
+                    <p>MediScan AI is a hybrid AI diagnostic tool built from scratch to make preliminary disease
+                        identification more accessible. It uses a <strong>Naive Bayes retrieval system</strong> combined
+                        with a <strong>fine-tuned DistilBERT reranker</strong> — trained on ~7,000 disease-symptom pairs
+                        sourced from Mayo Clinic and MedlinePlus — to rank likely diagnoses from plain-text symptom
+                        descriptions.</p>
+                    <div class="stats-row">
+                        <div class="stat">
+                            <span class="stat-num">73%</span>
+                            <span class="stat-label">Top-1 Accuracy</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-num">94%</span>
+                            <span class="stat-label">Top-3 Accuracy</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-num">97%</span>
+                            <span class="stat-label">Top-5 Accuracy</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-num">7k+</span>
+                            <span class="stat-label">Disease-Symptom Pairs</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-aside">
+                    <div class="how-card">
+                        <h3>How It Works</h3>
+                        <ol class="steps">
+                            <li><span class="step-num">1</span><span>You describe your symptoms in plain text</span>
+                            </li>
+                            <li><span class="step-num">2</span><span>An LLM extracts structured symptoms from your
+                                    input</span></li>
+                            <li><span class="step-num">3</span><span>Naive Bayes retrieval filters the top 20 candidate
+                                    diseases</span></li>
+                            <li><span class="step-num">4</span><span>DistilBERT reranker reorders candidates by learned
+                                    patterns</span></li>
+                            <li><span class="step-num">5</span><span>Results are returned ranked by confidence</span>
+                            </li>
+                        </ol>
+                    </div>
+                </div>
+            </div>
         </section>
+
+        <div class="disclaimer">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10" />
+                <path d="M12 8v4M12 16h.01" />
+            </svg>
+            <span><strong>Disclaimer:</strong> SymptomAI is a prototype for educational purposes only and is not a
+                substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified
+                healthcare provider.</span>
+        </div>
 
     </main>
 
     <footer>
-        <p>&copy; 2026 My AI Project</p>
+        <p>&copy; 2026 MediScan AI &mdash; CESASC AI Challenge Project</p>
     </footer>
 
     <script src="script.js"></script>

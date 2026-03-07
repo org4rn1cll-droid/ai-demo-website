@@ -6,8 +6,8 @@ import pandas as pd
 import torch
 import re
 from math import log
-from sentence_transformers import SentenceTransformer
-import ollama
+from sentence_transformers import SentenceTransformer # type: ignore
+import ollama # type: ignore
 
 from bayesian_core import BayesianCore
 from neural_reranker import NeuralReranker
@@ -203,8 +203,6 @@ class InferenceEngine:
         if "specificity_tier" in df_check.columns:
             self.bayes = BayesianWithSpecificity(self.base_bayes, "combined_symptoms.csv")
         else:
-            # Create a fallback - we need to find where specificity_tier data comes from
-            # For now, let's create a simple fallback that doesn't break
             self.bayes = BayesianWithSpecificity(self.base_bayes, "combined_symptoms.csv")
 
         self.reranker = NeuralReranker(model_path="reranker_model")
@@ -214,12 +212,22 @@ class InferenceEngine:
         self.symptom_id_to_name = dict(zip(canonical_df["symptom_id"], canonical_df["canonical"]))
 
     def diagnose(self, text):
+        """
+        Run diagnosis on the given symptom text.
+
+        Returns a dict with:
+          - "results": list of up to 3 diagnoses, each containing:
+              - "disease":          str   disease name
+              - "score":            float confidence (0–1)
+              - "matched_symptoms": list  canonical symptom names that matched
+              - "total_symptoms":   int   total symptoms extracted from input
+          - "error": str (only present if something went wrong)
+        """
 
         positive, negative = self.extractor.extract(text)
 
         if not positive:
-            print("No recognizable symptoms.")
-            return
+            return {"error": "No recognizable symptoms found. Please describe your symptoms in more detail."}
 
         hybrid_ranked = self.hybrid.diagnose(
             input_symptoms=positive,
@@ -227,9 +235,9 @@ class InferenceEngine:
             top_k=3
         )
 
-        print("\nTop Diagnoses:\n")
+        results = []
 
-        for i, (disease_id, _) in enumerate(hybrid_ranked, 1):
+        for disease_id, score in hybrid_ranked:
 
             disease_name = self.disease_id_to_name.get(disease_id, disease_id)
             disease_symptoms = set(self.base_bayes.disease_symptom_probs[disease_id].keys())
@@ -237,9 +245,14 @@ class InferenceEngine:
             matched = [s for s in positive if s in disease_symptoms]
             matched_names = [self.symptom_id_to_name.get(s, s) for s in matched]
 
-            print(f"{i}. {disease_name}")
-            print(f"Matched {len(matched)}/{len(positive)} symptoms: " + ", ".join(matched_names))
-            print("-" * 60)
+            results.append({
+                "disease": disease_name,
+                "score": score,
+                "matched_symptoms": matched_names,
+                "total_symptoms": len(positive)
+            })
+
+        return {"results": results}
 
 
 # ==========================================================
@@ -252,4 +265,18 @@ if __name__ == "__main__":
 
     while True:
         text = input("\nEnter symptoms: ")
-        engine.diagnose(text)
+        output = engine.diagnose(text)
+
+        if "error" in output:
+            print(output["error"])
+            continue
+
+        print("\nTop Diagnoses:\n")
+
+        for i, item in enumerate(output["results"], 1):
+            result = item  # type: ignore
+            print(f"{i}. {result['disease']}") # type: ignore
+            print(f"Confidence: {result['score'] * 100:.2f}%") # type: ignore
+            print(f"Matched {len(result['matched_symptoms'])}/{result['total_symptoms']} symptoms: " + # type: ignore
+                ", ".join(result["matched_symptoms"])) # type: ignore
+            print("-" * 60)
