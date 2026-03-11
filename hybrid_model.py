@@ -12,6 +12,11 @@ class HybridDX:
 
         top_candidates = self.bayes.top_k(input_symptoms, k=20)
 
+        # Normalize Bayesian scores within the top-20 candidates so they're
+        # on the same 0-1 scale as the neural scores before combining.
+        total_bayes = sum(s for _, s in top_candidates) or 1.0
+        top_candidates = [(d, s / total_bayes) for d, s in top_candidates]
+
         final_scores = []
 
         for disease, bayes_score in top_candidates:

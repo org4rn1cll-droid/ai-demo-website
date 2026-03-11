@@ -1,3 +1,11 @@
+document.addEventListener("DOMContentLoaded", function () {
+    document.getElementById("diagnoseBtn").addEventListener("click", runAI);
+
+    document.getElementById("inputText").addEventListener("keydown", function (e) {
+        if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) runAI();
+    });
+});
+
 function runAI() {
     const input = document.getElementById("inputText").value;
     const resultEl = document.getElementById("result");

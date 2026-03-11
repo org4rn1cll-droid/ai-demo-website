@@ -5,11 +5,315 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>MediScan AI — Medical Diagnosis Assistant</title>
-    <link rel="stylesheet" href="style.css">
     <link
         href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500;600&display=swap"
         rel="stylesheet">
     <style>
+        *,
+        *::before,
+        *::after {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        :root {
+            --blue: #2a6bcc;
+            --dark: #1a2535;
+            --mid: #3d4e63;
+            --muted: #6b7a8d;
+            --border: #e4e9f0;
+            --bg: #f5f7fb;
+            --white: #ffffff;
+            --radius: 12px;
+            --shadow: 0 2px 16px rgba(30, 50, 100, 0.08);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--bg);
+            color: var(--dark);
+            line-height: 1.65;
+            min-height: 100vh;
+            overflow-x: hidden;
+        }
+
+        .bg-grid {
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(42, 107, 204, 0.03) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(42, 107, 204, 0.03) 1px, transparent 1px);
+            background-size: 40px 40px;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        header {
+            background: var(--dark);
+            padding: 22px 40px;
+            position: relative;
+            z-index: 10;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.06);
+        }
+
+        .header-inner {
+            max-width: 1100px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            gap: 16px;
+        }
+
+        .logo-mark {
+            flex-shrink: 0;
+            animation: fadeIn 0.6s ease both;
+        }
+
+        header h1 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.75rem;
+            color: var(--white);
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            animation: fadeIn 0.6s 0.1s ease both;
+        }
+
+        .tagline {
+            font-size: 0.82rem;
+            color: rgba(255, 255, 255, 0.5);
+            font-weight: 400;
+            letter-spacing: 0.03em;
+            margin-top: 2px;
+            animation: fadeIn 0.6s 0.2s ease both;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(6px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(10px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes spin {
+            to {
+                transform: rotate(360deg);
+            }
+        }
+
+        main {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 48px 32px 64px;
+            position: relative;
+            z-index: 1;
+        }
+
+        section {
+            margin-bottom: 56px;
+        }
+
+        section h2 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.65rem;
+            color: var(--dark);
+            margin-bottom: 10px;
+            letter-spacing: -0.02em;
+        }
+
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 360px;
+            gap: 32px;
+            align-items: start;
+        }
+
+        .about-text p {
+            color: var(--mid);
+            font-size: 0.97rem;
+            margin-bottom: 14px;
+        }
+
+        .about-text strong {
+            color: var(--dark);
+            font-weight: 600;
+        }
+
+        .stats-row {
+            display: flex;
+            margin-top: 28px;
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            overflow: hidden;
+            background: var(--white);
+        }
+
+        .stat {
+            flex: 1;
+            padding: 18px 16px;
+            text-align: center;
+            border-right: 1px solid var(--border);
+        }
+
+        .stat:last-child {
+            border-right: none;
+        }
+
+        .stat-num {
+            display: block;
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.9rem;
+            color: var(--blue);
+            line-height: 1;
+            margin-bottom: 4px;
+        }
+
+        .stat-label {
+            display: block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--muted);
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .how-card {
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+        }
+
+        .how-card h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.15rem;
+            color: var(--dark);
+            margin-bottom: 18px;
+        }
+
+        .steps {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 14px;
+        }
+
+        .steps li {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            font-size: 0.88rem;
+            color: var(--mid);
+            line-height: 1.5;
+        }
+
+        .step-num {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 22px;
+            height: 22px;
+            min-width: 22px;
+            background: var(--blue);
+            color: white;
+            border-radius: 50%;
+            font-size: 0.72rem;
+            font-weight: 700;
+        }
+
+        .demo-sub {
+            color: var(--muted);
+            font-size: 0.93rem;
+            margin-bottom: 20px;
+        }
+
+        .input-wrap {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        textarea#inputText {
+            width: 100%;
+            height: 110px;
+            padding: 14px 16px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.95rem;
+            color: var(--dark);
+            background: var(--white);
+            border: 1.5px solid var(--border);
+            border-radius: var(--radius);
+            resize: vertical;
+            transition: border-color 0.2s, box-shadow 0.2s;
+            line-height: 1.6;
+        }
+
+        textarea#inputText:focus {
+            outline: none;
+            border-color: var(--blue);
+            box-shadow: 0 0 0 3px rgba(42, 107, 204, 0.12);
+        }
+
+        textarea#inputText::placeholder {
+            color: #b0bac8;
+        }
+
+        button#diagnoseBtn {
+            align-self: flex-start;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--blue);
+            color: white;
+            border: none;
+            border-radius: 8px;
+            padding: 11px 22px;
+            font-family: 'DM Sans', sans-serif;
+            font-size: 0.92rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.2s, transform 0.15s, box-shadow 0.2s;
+            box-shadow: 0 2px 8px rgba(42, 107, 204, 0.25);
+        }
+
+        button#diagnoseBtn:hover {
+            background: #1f56b0;
+            box-shadow: 0 4px 16px rgba(42, 107, 204, 0.35);
+            transform: translateY(-1px);
+        }
+
+        button#diagnoseBtn:active {
+            transform: translateY(0);
+        }
+
+        button#diagnoseBtn:disabled {
+            opacity: 0.5;
+            cursor: not-allowed;
+            transform: none;
+        }
+
         #loading {
             display: none;
             align-items: center;
@@ -17,7 +321,6 @@
             margin-top: 16px;
             color: #6b7a8d;
             font-size: 0.92rem;
-            font-family: 'DM Sans', sans-serif;
         }
 
         #loading.active {
@@ -28,38 +331,52 @@
             width: 20px;
             height: 20px;
             border: 2px solid #dce3ed;
-            border-top-color: #2a6bcc;
+            border-top-color: var(--blue);
             border-radius: 50%;
             animation: spin 0.7s linear infinite;
             flex-shrink: 0;
         }
 
-        @keyframes spin {
-            to {
-                transform: rotate(360deg);
-            }
+        #output {
+            margin-top: 24px;
+            background: var(--white);
+            border: 1px solid var(--border);
+            border-radius: var(--radius);
+            padding: 24px;
+            box-shadow: var(--shadow);
+            display: none;
         }
 
-        button:disabled {
-            opacity: 0.5;
-            cursor: not-allowed;
+        #output.visible {
+            display: block;
+            animation: fadeIn 0.4s ease;
         }
 
-        .symptom-tags {
+        .output-header {
             display: flex;
-            flex-wrap: wrap;
-            gap: 6px;
-            margin-top: 8px;
+            align-items: center;
+            justify-content: space-between;
+            margin-bottom: 16px;
+            padding-bottom: 14px;
+            border-bottom: 1px solid var(--border);
         }
 
-        .symptom-tag {
-            background: #eaf1fb;
-            color: #2a6bcc;
-            border: 1px solid #c5d9f5;
+        .output-header h3 {
+            font-family: 'DM Serif Display', serif;
+            font-size: 1.15rem;
+            color: var(--dark);
+        }
+
+        .result-count {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--muted);
+            background: var(--bg);
+            border: 1px solid var(--border);
             border-radius: 20px;
-            padding: 3px 12px;
-            font-size: 0.8rem;
-            font-weight: 500;
+            padding: 2px 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
         }
 
         .diagnosis-block {
@@ -80,74 +397,14 @@
             animation-delay: 0.10s;
         }
 
-        .diagnosis-block:nth-child(4) {
-            animation-delay: 0.15s;
-        }
-
-        .diagnosis-block:nth-child(5) {
-            animation-delay: 0.20s;
-        }
-
-        @keyframes fadeUp {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .rank-badge {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-            font-size: 0.78rem;
-            font-weight: 600;
-            margin-right: 10px;
-            flex-shrink: 0;
-        }
-
-        .rank-1 {
-            background: #fef3c7;
-            color: #92400e;
-        }
-
-        .rank-2 {
-            background: #f1f5f9;
-            color: #475569;
-        }
-
-        .rank-3 {
-            background: #fef3c7;
-            color: #78350f;
-            opacity: 0.7;
-        }
-
-        .rank-other {
-            background: #f1f5f9;
-            color: #94a3b8;
-        }
-
-        .diagnosis-header {
-            display: flex;
-            align-items: center;
-        }
-
         .diagnosis-name {
             font-family: 'DM Serif Display', serif;
             font-size: 1.1rem;
-            color: #1a2535;
+            color: var(--dark);
         }
 
         .confidence-bar-wrap {
             margin-top: 8px;
-            margin-left: 38px;
         }
 
         .confidence-label {
@@ -164,7 +421,6 @@
             background: #edf0f5;
             border-radius: 10px;
             overflow: hidden;
-            width: 100%;
         }
 
         .confidence-fill {
@@ -176,9 +432,119 @@
 
         .confidence-pct {
             font-size: 0.82rem;
-            color: #2a6bcc;
+            color: var(--blue);
             font-weight: 600;
             margin-top: 4px;
+        }
+
+        .match-summary {
+            font-size: 0.82rem;
+            color: var(--muted);
+            margin-top: 10px;
+        }
+
+        .symptom-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 6px;
+            margin-top: 6px;
+        }
+
+        .symptom-tag {
+            background: #eaf1fb;
+            color: var(--blue);
+            border: 1px solid #c5d9f5;
+            border-radius: 20px;
+            padding: 3px 12px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .disease-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            margin-top: 10px;
+            padding: 5px 13px;
+            background: #f0f6ff;
+            color: var(--blue);
+            border: 1px solid #c5d9f5;
+            border-radius: 20px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: background 0.18s, border-color 0.18s, color 0.18s;
+        }
+
+        .disease-link:hover {
+            background: var(--blue);
+            color: #fff;
+            border-color: var(--blue);
+        }
+
+        .disclaimer {
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            background: #fffbeb;
+            border: 1px solid #fde68a;
+            border-radius: var(--radius);
+            padding: 14px 18px;
+            font-size: 0.83rem;
+            color: #78350f;
+            line-height: 1.55;
+            margin-top: -24px;
+        }
+
+        .disclaimer svg {
+            flex-shrink: 0;
+            margin-top: 1px;
+            color: #d97706;
+        }
+
+        .disclaimer strong {
+            font-weight: 600;
+        }
+
+        footer {
+            background: var(--dark);
+            color: rgba(255, 255, 255, 0.4);
+            text-align: center;
+            padding: 20px 32px;
+            font-size: 0.82rem;
+            position: relative;
+            z-index: 1;
+        }
+
+        @media (max-width: 768px) {
+            header {
+                padding: 18px 20px;
+            }
+
+            main {
+                padding: 32px 20px 48px;
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .stats-row {
+                flex-wrap: wrap;
+            }
+
+            .stat {
+                flex: 1 1 calc(50% - 1px);
+            }
+
+            .stat:nth-child(2) {
+                border-right: none;
+            }
+
+            button#diagnoseBtn {
+                align-self: stretch;
+                justify-content: center;
+            }
         }
     </style>
 </head>
@@ -198,7 +564,12 @@
             <div>
                 <h1>MediScan AI</h1>
                 <p class="tagline">AI-Powered Medical Diagnosis Assistant</p>
-                <p class="tagline">Developed by Lucas Lan</p>
+                <p class="tagline">Developed by <a id="contact-link" style="color:rgba(255,255,255,0.5);text-decoration:none;display:inline-flex;align-items:center;gap:5px;cursor:pointer;">
+                    <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/>
+                    </svg>
+                    Lucas Lan
+                </a></p>
             </div>
         </div>
     </header>
@@ -212,7 +583,7 @@
             <div class="input-wrap">
                 <textarea id="inputText"
                     placeholder="Example: I have a mild cough, headaches, fatigue, sore throat, and fever for the past two days..."></textarea>
-                <button id="diagnoseBtn" onclick="runAI()">
+                <button id="diagnoseBtn">
                     <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2"
                         stroke-linecap="round" stroke-linejoin="round">
                         <circle cx="11" cy="11" r="8" />
@@ -243,29 +614,22 @@
                     <p>Millions of Americans face rising healthcare costs — a 3-day hospital stay now averages
                         <strong>$30,000</strong>, nearly 700% more than in 2000. For uninsured individuals, especially
                         in cities like Los Angeles with large homeless populations, even basic diagnosis can be
-                        financially devastating.</p>
+                        financially devastating.
+                    </p>
                     <p>MediScan AI is a hybrid AI diagnostic tool built from scratch to make preliminary disease
                         identification more accessible. It uses a <strong>Naive Bayes retrieval system</strong> combined
                         with a <strong>fine-tuned DistilBERT reranker</strong> — trained on ~7,000 disease-symptom pairs
                         sourced from Mayo Clinic and MedlinePlus — to rank likely diagnoses from plain-text symptom
                         descriptions.</p>
                     <div class="stats-row">
-                        <div class="stat">
-                            <span class="stat-num">73%</span>
-                            <span class="stat-label">Top-1 Accuracy</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-num">94%</span>
-                            <span class="stat-label">Top-3 Accuracy</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-num">97%</span>
-                            <span class="stat-label">Top-5 Accuracy</span>
-                        </div>
-                        <div class="stat">
-                            <span class="stat-num">7k+</span>
-                            <span class="stat-label">Disease-Symptom Pairs</span>
-                        </div>
+                        <div class="stat"><span class="stat-num">73%</span><span class="stat-label">Top-1
+                                Accuracy</span></div>
+                        <div class="stat"><span class="stat-num">94%</span><span class="stat-label">Top-3
+                                Accuracy</span></div>
+                        <div class="stat"><span class="stat-num">97%</span><span class="stat-label">Top-5
+                                Accuracy</span></div>
+                        <div class="stat"><span class="stat-num">7k+</span><span class="stat-label">Disease-Symptom
+                                Pairs</span></div>
                     </div>
                 </div>
                 <div class="about-aside">
@@ -294,7 +658,7 @@
                 <circle cx="12" cy="12" r="10" />
                 <path d="M12 8v4M12 16h.01" />
             </svg>
-            <span><strong>Disclaimer:</strong> SymptomAI is a prototype for educational purposes only and is not a
+            <span><strong>Disclaimer:</strong> MediScan AI is a prototype for educational purposes only and is not a
                 substitute for professional medical advice, diagnosis, or treatment. Always consult a qualified
                 healthcare provider.</span>
         </div>
@@ -305,7 +669,105 @@
         <p>&copy; 2026 MediScan AI &mdash; CESASC AI Challenge Project</p>
     </footer>
 
-    <script src="script.js"></script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            document.getElementById("diagnoseBtn").addEventListener("click", runAI);
+            document.getElementById("inputText").addEventListener("keydown", function (e) {
+                if (e.key === "Enter" && (e.ctrlKey || e.metaKey)) runAI();
+            });
+            // Build email at runtime to bypass Cloudflare obfuscation
+            const u = "l1u2c2a9s";
+            const d = "gmail.com";
+            const link = document.getElementById("contact-link");
+            link.href = "mailto:" + u + "@" + d;
+        });
+
+        function runAI() {
+            const input = document.getElementById("inputText").value.trim();
+            const resultEl = document.getElementById("result");
+            const btn = document.getElementById("diagnoseBtn");
+            const loading = document.getElementById("loading");
+            const outputEl = document.getElementById("output");
+
+            if (!input) {
+                resultEl.textContent = "Please enter symptoms.";
+                outputEl.classList.add("visible");
+                return;
+            }
+
+            loading.classList.add("active");
+            btn.disabled = true;
+            resultEl.innerHTML = "";
+            outputEl.classList.remove("visible");
+
+            fetch("/diagnose", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "ngrok-skip-browser-warning": "true"
+                },
+                body: JSON.stringify({ text: input })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        resultEl.textContent = data.error;
+                        outputEl.classList.add("visible");
+                        return;
+                    }
+
+                    if (!data.results || data.results.length === 0) {
+                        resultEl.textContent = data.result || "No results found.";
+                        outputEl.classList.add("visible");
+                        return;
+                    }
+
+                    let html = "";
+                    data.results.forEach((item, index) => {
+                        const pct = (item.score * 100).toFixed(2);
+                        const url = item.url
+                            ? item.url
+                            : "https://medlineplus.gov/search/?query=" + encodeURIComponent(item.disease);
+
+                        html += `
+                        <div class="diagnosis-block">
+                            <div class="diagnosis-name">${index + 1}. ${item.disease}</div>
+                            <div class="confidence-bar-wrap">
+                                <div class="confidence-label">Confidence</div>
+                                <div class="confidence-bar">
+                                    <div class="confidence-fill" style="width:${pct}%"></div>
+                                </div>
+                                <div class="confidence-pct">${pct}%</div>
+                            </div>
+                            <a class="disease-link" href="${url}" target="_blank" rel="noopener noreferrer">
+                                <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/>
+                                    <polyline points="15 3 21 3 21 9"/>
+                                    <line x1="10" y1="14" x2="21" y2="3"/>
+                                </svg>
+                                Learn more${item.url ? "" : " on MedlinePlus"}
+                            </a>
+                        </div>`;
+                    });
+
+                    resultEl.innerHTML = html;
+                    outputEl.classList.add("visible");
+                    document.getElementById("result-count").textContent =
+                        `${data.results.length} result${data.results.length !== 1 ? "s" : ""}`;
+                })
+                .catch(err => {
+                    console.error(err);
+                    resultEl.textContent = "Error connecting to server. Is Flask running?";
+                    outputEl.classList.add("visible");
+                })
+                .finally(() => {
+                    loading.classList.remove("active");
+                    btn.disabled = false;
+                });
+        }
+    </script>
+
 </body>
 
 </html>

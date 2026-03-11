@@ -58,10 +58,10 @@ class BayesianCore:
 
             symptom_probs = self.disease_symptom_probs[disease]
 
-            # Positive evidence
+            # Positive evidence — standard Naive Bayes (multiplier 1.0)
             for s in positive_symptoms:
                 p = symptom_probs.get(s, UNKOWN_SYMPTOM_PROB)
-                log_p += 1.2 * log(p)
+                log_p += log(p)
 
             # Explicit negative evidence only
             for s in negative_symptoms:

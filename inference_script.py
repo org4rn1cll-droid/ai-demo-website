@@ -146,11 +146,16 @@ class BayesianWithSpecificity:
         self.core = bayes_core
 
         df = pd.read_csv(combined_csv)
-        # Simple fallback - if specificity_tier column doesn't exist, use 1 for all symptoms
-        if "specificity_tier" in df.columns:
+
+        if "idf_weight" in df.columns:
+            tier_column = df["idf_weight"]
+        elif "specificity_tier" in df.columns:
             tier_column = df["specificity_tier"]
+        elif "tier" in df.columns:
+            tier_column = df["tier"]
         else:
-            tier_column = [1] * len(df)  # Simple list of 1s
+            tier_column = [1.0] * len(df)
+
         self.tiers = dict(zip(df["symptom_id"], tier_column))
 
     def score(self, positive, negative=None):
@@ -160,7 +165,6 @@ class BayesianWithSpecificity:
 
         base_probs = self.core.score(positive, negative)
 
-        # Add small additive specificity bonus
         boosted = {}
 
         for disease, prob in base_probs.items():
@@ -169,7 +173,7 @@ class BayesianWithSpecificity:
 
             for s in positive:
                 tier = self.tiers.get(s, 1)
-                log_p += 0.12 * tier   # gentle boost
+                log_p += 0.03 * tier
 
             boosted[disease] = log_p
 
@@ -178,6 +182,11 @@ class BayesianWithSpecificity:
         total = sum(exp_scores.values())
 
         return {d: float(v / total) for d, v in exp_scores.items()}
+
+    def top_k(self, positive_symptoms, negative_symptoms=None, k=20):
+        scores = self.score(positive_symptoms, negative_symptoms)
+        ranked = sorted(scores.items(), key=lambda x: x[1], reverse=True)
+        return ranked[:k]
 
 
 # ==========================================================
@@ -188,8 +197,18 @@ class InferenceEngine:
 
     def __init__(self):
 
+        # Load disease names
         disease_df = pd.read_csv("disease_ids.csv")
         self.disease_id_to_name = dict(zip(disease_df["disease_id"], disease_df["disease"]))
+
+        # Load disease URLs from combined_symptoms.csv
+        # Expects columns: disease_id, url (one row per disease, or first occurrence used)
+        combined_df = pd.read_csv("combined_symptoms.csv")
+        if "url" in combined_df.columns and "disease_id" in combined_df.columns:
+            url_df = combined_df.drop_duplicates(subset="disease_id")[["disease_id", "url"]]
+            self.disease_id_to_url = dict(zip(url_df["disease_id"], url_df["url"].fillna("")))
+        else:
+            self.disease_id_to_url = {}
 
         self.base_bayes = BayesianCore("combined_symptoms.csv", "base_priors.json")
 
@@ -198,15 +217,10 @@ class InferenceEngine:
             top_k=30
         )
 
-        # Check if combined_symptoms.csv has specificity_tier column, if not, create a fallback
-        df_check = pd.read_csv("combined_symptoms.csv")
-        if "specificity_tier" in df_check.columns:
-            self.bayes = BayesianWithSpecificity(self.base_bayes, "combined_symptoms.csv")
-        else:
-            self.bayes = BayesianWithSpecificity(self.base_bayes, "combined_symptoms.csv")
+        self.bayes = BayesianWithSpecificity(self.base_bayes, "combined_symptoms.csv")
 
         self.reranker = NeuralReranker(model_path="reranker_model")
-        self.hybrid = HybridDX(self.base_bayes, self.reranker)
+        self.hybrid = HybridDX(self.bayes, self.reranker)
 
         canonical_df = pd.read_csv("surface_to_canonical.csv")
         self.symptom_id_to_name = dict(zip(canonical_df["symptom_id"], canonical_df["canonical"]))
@@ -221,6 +235,7 @@ class InferenceEngine:
               - "score":            float confidence (0–1)
               - "matched_symptoms": list  canonical symptom names that matched
               - "total_symptoms":   int   total symptoms extracted from input
+              - "url":              str   reference URL (Mayo Clinic / MedlinePlus), may be empty
           - "error": str (only present if something went wrong)
         """
 
@@ -245,11 +260,14 @@ class InferenceEngine:
             matched = [s for s in positive if s in disease_symptoms]
             matched_names = [self.symptom_id_to_name.get(s, s) for s in matched]
 
+            url = self.disease_id_to_url.get(disease_id, "")
+
             results.append({
                 "disease": disease_name,
                 "score": score,
                 "matched_symptoms": matched_names,
-                "total_symptoms": len(positive)
+                "total_symptoms": len(positive),
+                "url": url
             })
 
         return {"results": results}
@@ -274,9 +292,10 @@ if __name__ == "__main__":
         print("\nTop Diagnoses:\n")
 
         for i, item in enumerate(output["results"], 1):
-            result = item  # type: ignore
-            print(f"{i}. {result['disease']}") # type: ignore
-            print(f"Confidence: {result['score'] * 100:.2f}%") # type: ignore
-            print(f"Matched {len(result['matched_symptoms'])}/{result['total_symptoms']} symptoms: " + # type: ignore
-                ", ".join(result["matched_symptoms"])) # type: ignore
+            print(f"{i}. {item['disease']}")
+            print(f"   Confidence: {item['score'] * 100:.2f}%")
+            print(f"   Matched {len(item['matched_symptoms'])}/{item['total_symptoms']} symptoms: " +
+                  ", ".join(item["matched_symptoms"]))
+            if item["url"]:
+                print(f"   More info: {item['url']}")
             print("-" * 60)
